@@ -4,7 +4,7 @@ import requests
 @app.get('/')
 @app.get('/home')
 def home():
-    url = 'https://fakestoreapi.com/products'
+    url = 'https://dummyjson.com/products'
     try:
         res = requests.get(url, timeout=5)
         res.raise_for_status()  # raises HTTPError for bad codes
