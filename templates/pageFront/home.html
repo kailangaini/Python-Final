@@ -8,8 +8,8 @@
             {% if products %}
                 {% for product in products %}
                     <div class="product-card">
-                        <a  href="{{ url_for('product_details', product_id=product.id) }}">
-                            <img src="{{ product.image }}" alt="{{ product.title }}">
+                        <a href="{{ url_for('product_details', product_id=product.id) }}">
+                            <img src="{{ product.thumbnail }}" alt="{{ product.title }}">
                         </a>
                         {% if product.price > 10 %}
                             <h3>{{ product.title }}</h3>
