@@ -8,9 +8,9 @@
             {% if products %}
                 {% for product in products %}
                     <div class="product-card">
-                        <a href="{{ url_for('product_details', product_id=product.id) }}">
-                            <img src="{{ product.thumbnail }}" alt="{{ product.title }}">
-                        </a>
+                        <div class="col-md-6 text-center mb-4 mb-md-0">
+                            <img src="{{ product.image }}" alt="{{ product.title }}" class="img-fluid rounded" style="max-height: 400px; object-fit: contain;">
+                        </div>
                         {% if product.price > 10 %}
                             <h3>{{ product.title }}</h3>
                         {% endif %}
