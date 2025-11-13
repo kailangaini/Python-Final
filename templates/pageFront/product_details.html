@@ -1,0 +1,30 @@
+{% extends 'pageFront/master.html' %}
+{% block content %}
+<main>
+  <div class="container">
+
+    <!-- Back Link -->
+    <div class="mb-4">
+      <a href="{{ url_for('home') }}" class="text-warning font-weight-bold">&larr; Back to Products</a>
+    </div>
+
+    <div class="row bg-white shadow-sm rounded p-4">
+
+      <!-- Product Image -->
+      <div class="col-md-6 text-center mb-4 mb-md-0">
+        <img src="{{ product.image }}" alt="{{ product.title }}" class="img-fluid rounded" style="max-height: 400px; object-fit: contain;">
+      </div>
+
+      <!-- Product Info -->
+      <div class="col-md-6">
+        <h1 class="mb-3">{{ product.title }}</h1>
+        <p class="h4 text-danger mb-3">${{ product.price }}</p>
+        <p class="mb-4">{{ product.description }}</p>
+        <button class="btn btn-warning btn-lg">Add to Cart</button>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+{% endblock %}

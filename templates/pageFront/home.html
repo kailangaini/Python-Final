@@ -1,0 +1,30 @@
+{% extends 'pageFront/master.html' %}
+{% block content %}
+    <main>
+      <h2>Our Latest Collection</h2>
+      <p>Browse our exclusive shirts designed for comfort and style. Order yours today!</p>
+
+      <div class="product-grid">
+            {% if products %}
+                {% for product in products %}
+                    <div class="product-card">
+                        <a  href="{{ url_for('product_details', product_id=product.id) }}">
+                            <img src="{{ product.image }}" alt="{{ product.title }}">
+                        </a>
+                        {% if product.price > 10 %}
+                            <h3>{{ product.title }}</h3>
+                        {% endif %}
+                        {% if product.price <= 10 %}
+                            <h3 style="color:red">{{ product.title }}</h3>
+                        {% endif %}
+                        <p>{{ product.description | truncate(50) }}</p>
+                        <p class="price" >${{ product.price }}</p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No products available right now. Please check back later.</p>
+            {% endif %}
+        </div>
+  </main>
+{% endblock %}
