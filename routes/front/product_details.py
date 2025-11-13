@@ -10,10 +10,8 @@ def product_details(product_id):
     if response.status_code == 200:
         p = response.json()
 
-        # Fallback image handling (thumbnail OR first image)
         image_url = p.get("thumbnail") or (p["images"][0] if p.get("images") else None)
 
-        # Normalize product data for your template
         product = {
             "id": p["id"],
             "title": p["title"],

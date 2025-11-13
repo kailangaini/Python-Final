@@ -11,7 +11,6 @@ def home():
         res.raise_for_status()
         raw_data = res.json().get("products", [])
 
-        # Normalize data so HTML works the same as before
         data = []
         for p in raw_data:
             image_url = p.get("thumbnail") or (p["images"][0] if p.get("images") else None)
